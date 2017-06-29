@@ -1,3 +1,13 @@
 <div>
     <p>content</p>
 </div>
+<button *ngIf="this.firstOpenLocal === undefined" (click)="prepareMap()">Losuj mape</button>
+<div *ngIf="this.firstOpenLocal !== undefined && this.currentTurn === 0">
+    <h2>Otwarte lokale:</h2>
+    <div> Dzielnica: {{this.firstOpenLocal.district}} lokal numer: {{this.firstOpenLocal.localNumber}} </div>
+    <div> Dzielnica: {{this.secondOpenLocal.district}} lokal numer: {{this.secondOpenLocal.localNumber}} </div>
+    <button (click)="startGame()">Zacznij gre</button>
+</div>
+<div *ngIf="this.firstOpenLocal !== undefined && this.currentTurn !== 0">
+    Tura: {{this.currentTurn}}
+</div>
