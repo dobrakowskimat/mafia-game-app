@@ -1,14 +1,24 @@
-<div>
-    <p>content</p>
+<div *ngIf="this.currentTurn !== this.endTurn || this.endTurn === 0">
+
+    <button *ngIf="this.firstOpenLocal === undefined" (click)="prepareMap()">Losuj mape</button>
+    <div *ngIf="this.firstOpenLocal !== undefined && this.currentTurn === 0">
+        <h2>Otwarte lokale:</h2>
+        <div> Dzielnica: {{this.firstOpenLocal.district}} lokal numer: {{this.firstOpenLocal.localNumber}} </div>
+        <div> Dzielnica: {{this.secondOpenLocal.district}} lokal numer: {{this.secondOpenLocal.localNumber}} </div>
+        <button (click)="startGame()">Zacznij gre</button>
+    </div>
+    <div *ngIf="this.firstOpenLocal !== undefined && this.currentTurn !== 0">
+        Tura: {{this.currentTurn}}
+    </div>
+    <div *ngIf="this.firstOpenLocal !== undefined && this.currentTurn !== 0">
+        <button (click)="newTurn()">nowa tura</button>
+        Event: {{this.rndEventSelect.title}} {{this.rndEventSelect.description}}
+    </div>
+    <div *ngIf="this.firstOpenLocal !== undefined && this.currentTurn !== 0">
+        <button (click)="newTransportEvent()">losuj event Transportowy</button>
+        {{this.transportEvent.title}} {{this.transportEvent.description}}
+    </div>
 </div>
-<button *ngIf="this.firstOpenLocal === undefined" (click)="prepareMap()">Losuj mape</button>
-<div *ngIf="this.firstOpenLocal !== undefined && this.currentTurn === 0">
-    <h2>Otwarte lokale:</h2>
-    <div> Dzielnica: {{this.firstOpenLocal.district}} lokal numer: {{this.firstOpenLocal.localNumber}} </div>
-    <div> Dzielnica: {{this.secondOpenLocal.district}} lokal numer: {{this.secondOpenLocal.localNumber}} </div>
-    <button (click)="startGame()">Zacznij gre</button>
-</div>
-<div *ngIf="this.firstOpenLocal !== undefined && this.currentTurn !== 0">
-    Tura: {{this.currentTurn}}
-    Turn state: {{this.status}}
+<div *ngIf="this.currentTurn === this.endTurn && this.endTurn !== 0">
+    KONIEC GRY
 </div>
