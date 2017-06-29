@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Locals } from './../../mock-locals';
 import { Local } from './../../local';
+import { TurnState } from './../../turn-state'
 
 @Component({
     selector: 'dashboard',
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit {
   public secondOpenLocal: Local;
   public currentTurn: number = 0;
   public endTurn: number = 0;
-  private status: string = "game start"; 
+  private status: TurnState; 
 
   ngOnInit(): void {
   }
@@ -28,7 +29,7 @@ export class DashboardComponent implements OnInit {
   }
   startGame(): void {
     this.endTurn = Math.floor(Math.random() * 5) + 10;
-    this.status = "turn start";
+    this.status = TurnState.firstState;
     this.currentTurn = 1;
   }
 }
