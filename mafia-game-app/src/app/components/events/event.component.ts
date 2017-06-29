@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Events } from './mock-events';
-import { Event } from './event';
+
+import { DashboardComponent } from './../dashboard/dashboard.component'
 
 @Component({
   selector: 'event',
@@ -9,21 +9,9 @@ import { Event } from './event';
 })
 
 export class EventComponent implements OnInit {
-
-  public rndEventNr: number;
-  public rndEventSelect: Event;
     
     ngOnInit(): void {
-      console.log(Events.length +'<----');
     }
    
-    rndEvents(): void {
-
-    this.rndEventNr = Math.floor(Math.random() * Events.length);
-    console.log(this.rndEventNr +'<---');
-    ///arr -- event;
-    // random event 
-    // pokaz event
-  }
 }
 
