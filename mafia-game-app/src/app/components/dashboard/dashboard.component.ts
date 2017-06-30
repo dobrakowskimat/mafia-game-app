@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   public rndEventNr: number;
   public rndEventSelect: Event;
   public transportEvent: Event;
+  public boneThrow: number;
 
   ngOnInit(): void {
   }
@@ -46,5 +47,8 @@ export class DashboardComponent implements OnInit {
   newTransportEvent() {
     let myNumber = Math.floor(Math.random() * (TransportEvents.length - 1));
     this.transportEvent = TransportEvents[myNumber];
+  }
+  throwBone() {
+    this.boneThrow = Math.floor(Math.random() * 6) + 1;
   }
 }
