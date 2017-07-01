@@ -25,7 +25,5 @@ export const Locals: Local[] = [
       { id: 22, district: 5, localNumber: 1},
       { id: 23, district: 5, localNumber: 2},
       { id: 24, district: 5, localNumber: 3},
-      { id: 25, district: 5, localNumber: 4},
-      { id: 26, district: 5, localNumber: 5},
 
     ];
